@@ -3,7 +3,9 @@
 	<App>
 		<pages>
 			<Page title="{i18n>title}">
-				<content></content>
+				<content>
+					<Button text="Zu den Kategorien" press="onPress"/>
+				</content>
 			</Page>
 		</pages>
 	</App>
