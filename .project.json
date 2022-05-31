@@ -18,6 +18,11 @@
       "templateId": "servicecatalog.connectivityComponent",
       "templateVersion": "0.0.0",
       "dateTimeStamp": "Tue, 31 May 2022 12:27:07 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Tue, 31 May 2022 13:30:56 GMT"
     }
   ],
   "codeCheckingTriggers": {

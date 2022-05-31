@@ -1,0 +1,11 @@
+<c:FragmentDefinition xmlns:c="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout">
+	<l:VerticalLayout>
+		<l:content>
+			<List id="idList" items="{/Products}" itemPress="onItemPress">
+				<items>
+					<StandardListItem type="Navigation" title="{/Products>Name}" icon="sap-icon://flight"/>
+				</items>
+			</List>
+		</l:content>
+	</l:VerticalLayout>
+</c:FragmentDefinition>
