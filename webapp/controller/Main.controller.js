@@ -18,7 +18,7 @@ sap.ui.define([
 					console.log(oData);
 				},
 				error: function(oError) {
-					console.log("Ein Fehler ist aufgetreten!")
+					console.log("Ein Fehler ist aufgetreten!");
 					console.log(oError);
 				}
 			});
@@ -26,7 +26,7 @@ sap.ui.define([
 		onPress: function() {
 			var oSomeCategory = this.oMyODataModel.getProperty("/Products");
 			console.log("Ergebnis von getProperty()");
-			console.log(oSomeCategory)
+			console.log(oSomeCategory);
 
 		}
 
