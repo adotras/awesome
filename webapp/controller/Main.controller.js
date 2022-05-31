@@ -12,7 +12,7 @@ sap.ui.define([
 
 			this.oMyODataModel = oModel;
 
-			oModel.read("/Products", {
+			oModel.read("/Categories", {
 
 				success: function(oData, response) {
 					console.log(oData);
@@ -24,7 +24,7 @@ sap.ui.define([
 			});
 		},
 		onPress: function() {
-			var oSomeCategory = this.oMyODataModel.getProperty("/Products");
+			var oSomeCategory = this.oMyODataModel.getProperty("/Categories");
 			console.log("Ergebnis von getProperty()");
 			console.log(oSomeCategory);
 
