@@ -33,7 +33,7 @@ sap.ui.define([
 			var sPath = oItem.getBindingContext("{Product}").getPath();
 			var sPathIndex = sPath.substr(sPath.lastIndexOf("/") + 1);
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("detailProduct", {Product: sPathIndex});
+			oRouter.navTo("detailProduct", {ID: sPathIndex});
 		}
 
 	});
