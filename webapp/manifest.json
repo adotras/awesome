@@ -106,7 +106,7 @@
 				"name": "detail",
 				"target": "DetailProduct"
 			}, {
-				"pattern": "Products/{ID}",
+				"pattern": "{ID}",
 				"name": "detailProductTarget",
 				"target": "detailProductTarget"
 			}],
