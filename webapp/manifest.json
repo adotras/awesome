@@ -85,6 +85,47 @@
 			"css": [{
 				"uri": "css/style.css"
 			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "aweawesome.view.Main",
+				"controlId": "app01",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": "notFoundTarget"
+				}
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "mainRoute",
+				"target": "mainTarget"
+			}, {
+				"pattern": "detail",
+				"name": "detail",
+				"target": "DetailProduct"
+			}, {
+				"pattern": "Products/{ID}",
+				"name": "detailProductTarget",
+				"target": "detailProductTarget"
+			}],
+			"targets": {
+				"masterTarget": {
+					"viewName": "Main",
+					"viewLevel": 1
+				},
+				"detailTarget": {
+					"viewName": "Detail",
+					"viewLevel": 2,
+					"transition": "flip"
+				},
+				"detailProductTarget": {
+					"viewName": "DetailProduct",
+					"viewLevel": 2
+				}
+			}
 		}
+
 	}
 }
