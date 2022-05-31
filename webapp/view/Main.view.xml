@@ -1,9 +1,10 @@
 <mvc:View controllerName="aweawesome.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
-	displayBlock="true" xmlns="sap.m">
+	displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core">
 	<App>
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
+					<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>
 					<Button text="Im Shop stöbern" />
 					<Button text="Food" />
 					<Button text="Beverages" />
