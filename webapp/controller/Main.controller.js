@@ -26,6 +26,16 @@ sap.ui.define([
 		onPress: function() {
 			var oSomeCategory = this.oMyODataModel.getProperty("/Categories");
 			console.log("Ergebnis von getProperty()");
+
+			console.log(oSomeCategory)
+		},
+			onItemPress: function(oEvent){
+			var oItem = oEvent.getParameter("listItem");
+			var sPath = oItem.getBindingContext("{Product}").getPath();
+			var sPathIndex = sPath.substr(sPath.lastIndexOf("/") + 1);
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("detailProduct", {Product: sPathIndex});
+
 			console.log(oSomeCategory);
 
 		}
