@@ -1,35 +1,45 @@
-<c:FragmentDefinition xmlns:c="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table">
+<c:FragmentDefinition xmlns:c="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table" xmlns:f="sap.ui.layout.form"
+	xmlns:customData="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1">
 	<l:VerticalLayout>
 		<l:content>
-			<t:Table id="TableBasic" rows="{/Products}" enableBusyIndicator="true" enableCustomFilter="true">
-				<t:columns>
-					<t:Column>
-						<t:label>
-							<Text text="Produkt"/>
-						</t:label>
-						<t:template>
-							<Text text="{Name}"/>
-						</t:template>
-					</t:Column>
-					<t:Column>
-						<t:label>
-							<Text text="Preis"/>
-						</t:label>
-						<t:template>
-							<Text text="{Price} €"/>
-						</t:template>
-					</t:Column>
-					<t:Column>
-						<t:label>
-							<Text text="Bewertung"/>
-						</t:label>
-						<t:template>
-							<Text text="{Rating}"/>
-						</t:template>
-					</t:Column>
-				</t:columns>
-			</t:Table>
-			<Text text="{Default>Rating}"/>
+			<f:Form editable="true" id="form0">
+				<f:layout>
+					<f:ResponsiveGridLayout id="layout0"/>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer title="Produkt" id="cont0">
+						<f:formElements>
+							<f:FormElement id="elem0">
+								<f:fields>
+									<VBox>
+										<Label text="ProduktID: {ID}"/>
+										<Label text="Produktname: {Name}"/>
+										<Label text="Produktbeschreibung: {Description}"/>
+										<Label text="Bewertung: {Rating}"/>
+										<Label text="Preis: {Price} €" id="labelPrice"/>
+									</VBox>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer title="Bestellen" id="cont1">
+						<f:formElements>
+							<f:FormElement id="elem1">
+								<f:fields>
+									<VBox>
+										<Label text="Bestellmenge"/>
+										<Input value="1" id="input1" width="200px" customData:liveChangeAllow="digits" customData:liveChangeMsgOnInvalidInput="# is not allowed"
+											customData:liveChangeMaxLength="10" liveChange="onLiveChangeInputValidate"/>
+										<Label text="Gesamtpreis"/>
+										<Input value="Fill it up" id="input2" width="200px" editable="false"/>
+										<Button text="Kaufen" press="onPress"/>
+									</VBox>
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
 		</l:content>
 	</l:VerticalLayout>
 </c:FragmentDefinition>
