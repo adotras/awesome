@@ -2,17 +2,14 @@
 	displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core">
 	<App id="app01">
 		<pages>
-			<Page title="{i18n>title}">
+			<Page title="Awesome Online Shop">
 				<content>
-					
-						<Button text="Im Shop stöbern"/>
-						<Button text="Food"/>
-						<Button text="Beverages"/>
-						<Button text="Electronics"/>
-					
 					<VBox>
+						<ComboBox items="{/Categories}" id="Combobox0" selectionChange="onSelectionChange">
+							<c:Item text="{Name}"/>
+						</ComboBox>
 						<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>
-						</VBox>
+					</VBox>
 				</content>
 			</Page>
 		</pages>

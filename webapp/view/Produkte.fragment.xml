@@ -3,11 +3,51 @@
 		<l:content>
 			<VBox>
 				<Text text="Master View"/>
-				<List id="idList" items="{/Products}" itemPress="onItemPress" width="100%">
+				<Table items="{path: '/Products', parameters: { expand: 'Category, Supplier' }}" id="table0" itemPress="onItemPress">
 					<items>
-						<StandardListItem type="Navigation" title="{Name}" description="Preis: {Price} €  Bewertung: {Rating}" icon="sap-icon://flight"/>
+						<ColumnListItem type="Active" id="__item2">
+							<cells>
+								<Text text="{Category/Name}" id="__text1"/>
+								<Text text="{Name}" id="__text2"/>
+								<Text text="{Price} €" id="__text3"/>
+								<Text text="{Supplier/Name}" id="__text5"/>
+								<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip" />
+							</cells>
+						</ColumnListItem>
 					</items>
-				</List>
+					<columns>
+						<Column id="__column4">
+							<header>
+								<Label text="Category" id="__label4"/>
+							</header>
+						</Column>
+						<Column id="__column0">
+							<header>
+								<Label text="Produkt" id="__label0"/>
+							</header>
+						</Column>
+						<Column id="__column1">
+							<header>
+								<Label text="Preis" id="__label1"/>
+							</header>
+						</Column>
+						<Column id="__column3">
+							<header>
+								<Label text="Lieferant" id="__label3"/>
+							</header>
+						</Column>
+						<Column id="__column5">
+							<header>
+								<Label text="Rating" id="__label5"/>
+							</header>
+						</Column>
+					</columns>
+				</Table>
+				<!--				<List id="idList" items="{/Products}" itemPress="onItemPress" width="100%">
+					<items>
+						<StandardListItem type="Navigation" title="{Name}" description="Preis: {Price} € Bewertung: {Rating}" icon="sap-icon://flight"/>
+					</items>
+				</List>-->
 			</VBox>
 		</l:content>
 	</l:VerticalLayout>

@@ -28,7 +28,16 @@ sap.ui.define([
 			var sPath = oItem.getBindingContext().getPath();
 			var sPathIndex = sPath.substr(sPath.lastIndexOf("/") + 1);
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("detailProduct", {prodId: sPathIndex});
+			oRouter.navTo("detailProduct", {
+				prodId: sPathIndex
+			});
+		},
+		
+		onSelectionChange: function(oEvent) {
+			var oItem = oEvent.getParameter("selectedItem");
+			var sPath = oItem.getBindingContext().getPath();
+			var oTable = this.getView().byId("table0");
+			oTable.bindElement(sPath);
 		}
 
 	});

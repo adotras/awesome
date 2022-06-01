@@ -2,7 +2,7 @@
 	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:c="sap.ui.core">
 	<App>
 		<pages>
-			<Page title="Title">
+			<Page title="Produktinformationen für {Name}" showNavButton="true" navButtonPress="onNavBack">
 				<content>
 					<c:Fragment fragmentName="aweawesome.view.Detail" type="XML" id="frag2"/>
 				</content>
