@@ -24,11 +24,11 @@ sap.ui.define([
 			});
 		},
 		onItemPress: function(oEvent) {
-			var oItem = this.getOwnerComponent().getRouter();
-			var sPath = oItem.getBindingContext("Default").getPath();
-			var sPathIndex = sPathIndex = sPath.substr(sPath.lastIndexOf("/") + 1);
+			var oItem = oEvent.getParameter("listItem");
+			var sPath = oItem.getBindingContext().getPath();
+			var sPathIndex = sPath.substr(sPath.lastIndexOf("/") + 1);
 			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("detail", {ID: sPathIndex});
+			oRouter.navTo("detailProduct", {prodId: sPathIndex});
 		}
 
 	});
