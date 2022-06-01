@@ -5,7 +5,7 @@
 				<Text text="Master View"/>
 				<List id="idList" items="{/Products}" itemPress="onItemPress" width="100%">
 					<items>
-						<StandardListItem type="Navigation" title="{Name}" description="Preis: {Price} €  Bewertung: {Rating} " icon="sap-icon://flight"/>
+						<StandardListItem type="Navigation" title="{Name}" description="Preis: {Price} €  Bewertung: {Rating}" icon="sap-icon://flight"/>
 					</items>
 				</List>
 			</VBox>

@@ -1,6 +1,6 @@
 <mvc:View controllerName="aweawesome.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core">
-	<App>
+	<App id="app01">
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
