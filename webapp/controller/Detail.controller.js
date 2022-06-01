@@ -12,11 +12,11 @@ sap.ui.define([
 		},
 		
 		_onProductMatched: function(oEvent){
-			var sProdPath = oEvent.getParameter("arguments").ID;
+			var sProdPath = oEvent.getParameter("arguments").prodId;
 			
 			this.getView().bindElement({
 				path: "/Products/" + sProdPath,
-				model: "Product"
+				model: "Default"
 			});
 		}
 

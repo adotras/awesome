@@ -93,18 +93,16 @@
 				"viewPath": "aweawesome.view.Main",
 				"controlId": "app01",
 				"controlAggregation": "pages",
-				"bypassed": {
-					"target": "notFoundTarget"
-				}
+				"bypassed": { "target": "notFoundTarget"}
 			},
 			"routes": [{
 				"pattern": "",
 				"name": "mainRoute",
 				"target": "mainTarget"
 			}, {
-				"pattern": "detail/{ID}",
-				"name": "detail",
-				"target": "Product"
+				"pattern": "detail/{prodId}",
+				"name": "detailProduct",
+				"target": "detailProductTarget"
 			}],
 			"targets": {
 				"mainTarget": {
@@ -115,7 +113,6 @@
 					"viewName": "NotFound"
 				},
 				"detailProductTarget": {
-					"viewPath": "aweawesome.view.Detail",
 					"viewName": "Detail",
 					"viewLevel": 2
 				}
