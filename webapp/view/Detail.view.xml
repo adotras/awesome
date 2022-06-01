@@ -1,10 +1,10 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="awe.controller.Detail"
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="aweawesome.controller.Detail"
 	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:c="sap.ui.core">
 	<App>
 		<pages>
 			<Page title="Title">
 				<content>
-					<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag2"/>
+					<c:Fragment fragmentName="aweawesome.view.Detail" type="XML" id="frag2"/>
 				</content>
 			</Page>
 		</pages>

@@ -90,10 +90,11 @@
 			"config": {
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
-				"viewPath": "aweawesome.view.Main",
+				"viewPath": "aweawesome.view",
 				"controlId": "app01",
 				"controlAggregation": "pages",
-				"bypassed": { "target": "notFoundTarget"}
+				"bypassed": { "target": "notFoundTarget"},
+				"async": true
 			},
 			"routes": [{
 				"pattern": "",

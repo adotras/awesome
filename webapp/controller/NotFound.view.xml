@@ -1,3 +1,0 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="aweawesome.controller.NotFound">
-	<MessagePage title="Not Found" text= "Diese Seite wurde leider nicht gefunden" description="Diese Seite existiert nicht mehr."></MessagePage>
-</mvc:View>
