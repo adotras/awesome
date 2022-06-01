@@ -3,11 +3,42 @@
 		<l:content>
 			<VBox>
 				<Text text="Master View"/>
-				<List id="idList" items="{/Products}" itemPress="onItemPress" width="100%">
+				<ComboBox items="{/Categories}" id="Combobox0" selectionChange="onSelectionChange">
+					<c:Item text="{Name}"/>
+				</ComboBox>
+				<Table items="{/Products}" id="table0" itemPress="onItemPress">
 					<items>
-						<StandardListItem type="Navigation" title="{Name}" description="Preis: {Price} €  Bewertung: {Rating}" icon="sap-icon://flight"/>
+						<ColumnListItem type="Active" id="__item2">
+							<cells>
+								<Text text="{Name}" id="__text2"/>
+								<Text text="{Price} €" id="__text3"/>
+								<Text text="{Rating}" id="__text4"/>
+							</cells>
+						</ColumnListItem>
 					</items>
-				</List>
+					<columns>
+						<Column id="__column0">
+							<header>
+								<Label text="Produkt" id="__label0"/>
+							</header>
+						</Column>
+						<Column id="__column1">
+							<header>
+								<Label text="Preis" id="__label1"/>
+							</header>
+						</Column>
+						<Column id="__column2">
+							<header>
+								<Label text="Rating" id="__label2"/>
+							</header>
+						</Column>
+					</columns>
+				</Table>
+				<!--				<List id="idList" items="{/Products}" itemPress="onItemPress" width="100%">
+					<items>
+						<StandardListItem type="Navigation" title="{Name}" description="Preis: {Price} € Bewertung: {Rating}" icon="sap-icon://flight"/>
+					</items>
+				</List>-->
 			</VBox>
 		</l:content>
 	</l:VerticalLayout>

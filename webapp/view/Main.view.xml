@@ -4,15 +4,9 @@
 		<pages>
 			<Page title="{i18n>title}">
 				<content>
-					
-						<Button text="Im Shop stöbern"/>
-						<Button text="Food"/>
-						<Button text="Beverages"/>
-						<Button text="Electronics"/>
-					
 					<VBox>
 						<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>
-						</VBox>
+					</VBox>
 				</content>
 			</Page>
 		</pages>
