@@ -18,7 +18,7 @@
 								<Text text="{Name}" id="__text2"/>
 								<Text text="{Price} €" id="__text3"/>
 								<Text text="{Supplier/Name}" id="__text5"/>
-								<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"/>
+								<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip" enabled="false"/>
 							</cells>
 						</ColumnListItem>
 					</items>
