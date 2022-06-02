@@ -7,6 +7,8 @@ sap.ui.define([
 
 	return Controller.extend("aweawesome.controller.Detail", {
 
+		//_sProdPath: {},
+
 		onInit: function() {
 			var oRouter = this.getOwnerComponent().getRouter();
 			var oRoute = oRouter.getRoute("detailProduct");
@@ -15,6 +17,10 @@ sap.ui.define([
 
 		_onProductMatched: function(oEvent) {
 			var sProdPath = oEvent.getParameter("arguments").prodId;
+
+
+			//this._sProdPath = "/" + oEvent.getParameter("arguments").prodId;
+
 			this.getView().bindElement({
 				path: "/" + sProdPath
 			});
@@ -27,6 +33,9 @@ sap.ui.define([
 		},
 
 		onNavBack: function() {
+
+			//this.getRouter().navTo("mainRoute");
+
 			var oHistory = History.getInstance();
 			var oPrevHash = oHistory.getPreviousHash();
 			if (oPrevHash !== undefined) {
@@ -70,6 +79,7 @@ sap.ui.define([
 			} else {
 
 				var myVal = event.target.value;
+
 				var oVal = this.byId(Fragment.createId("frag2", "labelPrice")).getText();
 
 				var gesamtPreis = myVal * oVal;
@@ -78,6 +88,41 @@ sap.ui.define([
 				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
 
 				oInput2.setValue(gesamtPreis);
+
+				console.log(myVal);
+				// var oVal = this.getView().byId("__xmlview1--frag2--labelPrice");
+				// console.log(oVal);
+				// oVal.valueOf();
+				// console.log(oVal);
+
+				//var oVal = document.getElementById("__xmlview1--frag2--labelPrice").innerHTML;
+				//this.getView().getModel().getProperty(_sProdPath + "/Price");
+				var oVal = this.byId(Fragment.createId("frag2", "labelPrice")).getText();
+				console.log(oVal);
+
+				console.log(oVal);
+
+				var gesamtPreis = myVal * oVal;
+				gesamtPreis = (Math.round(gesamtPreis * 100) / 100).toFixed(2);
+				// var prodPriceLabelLoc = this.byId(Fragment.createId("frag2", "labelPrice"));
+				// // var prodPrice = prodPriceLabelLoc.
+				// var oVal = this.getView().byId("__xmlview2--frag2--labelPrice").getText();
+				// console.log(oVal);
+
+				//	var coolput = this.getView().byId("__xmlview2--frag2--input2");
+				//	var coolput = this.getView().byId("input2");
+				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
+
+				// console.log(oInput2);
+				oInput2.setValue(gesamtPreis);
+				// var input = document.getElementById("input2");
+				// console.log(input);
+
+				//	this.getView().byId("input2").setText(this.getView().byId("input1").getValue());
+				// this.getView().byId("input2").valueOf(myVal);
+				// this.getView().byId("input2").value = myVal;
+				// this.getView().byId("input2").setText(myVal);
+
 
 				oEvent.getSource().setValue(newValue);
 				oEvent.getSource().setValueState("None");
