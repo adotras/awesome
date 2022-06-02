@@ -9,11 +9,8 @@ sap.ui.define([
 	return Controller.extend("aweawesome.controller.Main", {
 		onInit: function() {
 			var oModel = this.getOwnerComponent().getModel();
-
 			this.oMyODataModel = oModel;
-
 			oModel.read("/Categories", {
-
 				success: function(oData, response) {
 					console.log(oData);
 				},
@@ -36,36 +33,36 @@ sap.ui.define([
 			var oBinding = oTable.getBinding("items");
 			// apply grouping 
 			var aSorters = [];
-	/*		if (mParams.groupItem) {
-				var sPath = mParams.groupItem.getKey();
-				var bDescending = mParams.groupDescending;
-				var vGroup = function(oContext) {
-					var name = oContext.getProperty("/Categories");
-					return {
-						key: name,
-						text: name
-					};
-				};
-				aSorters.push(new sap.ui.model.Sorter(sPath, bDescending, vGroup));
-			}*/
+			/*		if (mParams.groupItem) {
+						var sPath = mParams.groupItem.getKey();
+						var bDescending = mParams.groupDescending;
+						var vGroup = function(oContext) {
+							var name = oContext.getProperty("/Categories");
+							return {
+								key: name,
+								text: name
+							};
+						};
+						aSorters.push(new sap.ui.model.Sorter(sPath, bDescending, vGroup));
+					}*/
 			// apply sorter 
 			var sPath = mParams.sortItem.getKey();
 			var bDescending = mParams.sortDescending;
 			aSorters.push(new sap.ui.model.Sorter(sPath, bDescending));
 			oBinding.sort(aSorters);
 			// apply filters 
-/*			var aFilters = [];
-			for (var i = 0, l = mParams.filterItems.length; i < l; i++) {
-				var oItem = mParams.filterItems[i];
-				var aSplit = oItem.getKey().split("___");
-				var sPath = aSplit[0];
-				var vOperator = aSplit[1];
-				var vValue1 = aSplit[2];
-				var vValue2 = aSplit[3];
-				var oFilter = new sap.ui.model.Filter(sPath, vOperator, vValue1, vValue2);
-				aFilters.push(oFilter);
-			}
-			oBinding.filter(aFilters);*/
+			/*			var aFilters = [];
+						for (var i = 0, l = mParams.filterItems.length; i < l; i++) {
+							var oItem = mParams.filterItems[i];
+							var aSplit = oItem.getKey().split("___");
+							var sPath = aSplit[0];
+							var vOperator = aSplit[1];
+							var vValue1 = aSplit[2];
+							var vValue2 = aSplit[3];
+							var oFilter = new sap.ui.model.Filter(sPath, vOperator, vValue1, vValue2);
+							aFilters.push(oFilter);
+						}
+						oBinding.filter(aFilters);*/
 		},
 
 		onItemPress: function(oEvent) {
