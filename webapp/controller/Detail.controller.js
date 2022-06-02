@@ -68,8 +68,8 @@ sap.ui.define([
 				
 				var myVal = event.target.value;
 				console.log(myVal);
-				var prodPrice = this.getElementById("labelPrice");
-				console.log(prodPrice);
+				// var prodPrice = this.getElementById("labelPrice");
+				// console.log(prodPrice);
 				
 				var coolput = this.getView().byId("__xmlview2--frag2--input2");
 				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
