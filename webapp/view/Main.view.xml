@@ -8,6 +8,7 @@
 						<ComboBox items="{/Categories}" id="Combobox0" selectionChange="onSelectionChange">
 							<c:Item text="{Name}"/>
 						</ComboBox>
+						<Button text="Im Shop stöbern" press="onPressFilter"/>
 						<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>
 					</VBox>
 				</content>

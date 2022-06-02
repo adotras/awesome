@@ -15,23 +15,27 @@ sap.ui.define([
 
 		_onProductMatched: function(oEvent) {
 			var sProdPath = oEvent.getParameter("arguments").prodId;
-
 			this.getView().bindElement({
-				//				path: "/Products/" + sProdPath,
 				path: "/" + sProdPath
-					//				model: "undefined"
 			});
+			var sFilterValue = this.byId(Fragment.createId("frag2", "Supplier")).getText();
+			var oFilter = new sap.ui.model.Filter("Supplier/Name",
+				sap.ui.model.FilterOperator.EQ,
+				sFilterValue);
+			var oTable = this.getView().byId(Fragment.createId("frag1", "table0"));
+			oTable.getBinding("items").filter([oFilter]);
 		},
+
 		onNavBack: function() {
 			var oHistory = History.getInstance();
 			var oPrevHash = oHistory.getPreviousHash();
-
 			if (oPrevHash !== undefined) {
 				window.history.go(-1);
 			} else {
 				this.toMaster();
 			}
 		},
+
 		onLiveChangeInputValidate: function(oEvent) {
 			var inputValue = oEvent.getParameter('value').trim();
 			var newValue = inputValue;
@@ -47,7 +51,7 @@ sap.ui.define([
 			if (maxLength) {
 				newValue = newValue.substring(0, maxLength);
 			}
-			
+
 			var msgOnInvalidInput = oEvent.getSource().data()["liveChangeMsgOnInvalidInput"];
 			if (msgOnInvalidInput && (newValue !== inputValue)) {
 				for (var i = 0; i < inputValue.length; i++) {
@@ -64,25 +68,17 @@ sap.ui.define([
 					}
 				}
 			} else {
-				
-				
+
 				var myVal = event.target.value;
-				console.log(myVal);
-				// var prodPrice = this.getElementById("labelPrice");
-				// console.log(prodPrice);
-				
-				var coolput = this.getView().byId("__xmlview2--frag2--input2");
+				var oVal = this.byId(Fragment.createId("frag2", "labelPrice")).getText();
+
+				var gesamtPreis = myVal * oVal;
+				gesamtPreis = (Math.round(gesamtPreis * 100) / 100).toFixed(2);
+
 				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
-				console.log(coolput);
-				coolput.setValue(myVal);
-				// var input = document.getElementById("input2");
-				// console.log(input);
-				
-				//	this.getView().byId("input2").setText(this.getView().byId("input1").getValue());
-				// this.getView().byId("input2").valueOf(myVal);
-				// this.getView().byId("input2").value = myVal;
-				// this.getView().byId("input2").setText(myVal);
-				
+
+				oInput2.setValue(gesamtPreis);
+
 				oEvent.getSource().setValue(newValue);
 				oEvent.getSource().setValueState("None");
 				oEvent.getSource().setValueStateText("");
