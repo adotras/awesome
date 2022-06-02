@@ -16,7 +16,7 @@
 										<Label text="Produktname: {Name}"/>
 										<Label text="Produktbeschreibung: {Description}"/>
 										<Label text="Bewertung:"/>
-										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"/>
+										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip" enabled="false"/>
 										<Label text="Preis: {Price} €" id="labelPrice"/>
 									</VBox>
 								</f:fields>
@@ -32,7 +32,7 @@
 										<Input value="1" id="input1" width="200px" customData:liveChangeAllow="digits" customData:liveChangeMsgOnInvalidInput="# is not allowed"
 											customData:liveChangeMaxLength="10" liveChange="onLiveChangeInputValidate"/>
 										<Label text="Gesamtpreis"/>
-										<Input value="Fill it up" id="input2" width="200px" editable="false"/>
+										<Input value="Fill it up" id="input_fill" width="200px" editable="false"/>
 										<Button text="Kaufen" press="onPress"/>
 									</VBox>
 								</f:fields>

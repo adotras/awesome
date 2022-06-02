@@ -2,10 +2,10 @@
 	xmlns:c="sap.ui.core">
 	<App>
 		<pages>
-			<Page title="Produktinformationen für {Name}" showNavButton="true" navButtonPress="onNavBack">
+			<Page title="Produktinformationen für {Name}" showNavButton="true" navButtonPress="onNavBack" id="Detailpage">
 				<content>
 					<c:Fragment fragmentName="aweawesome.view.Detail" type="XML" id="frag2"/>
-					<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>
+					<!--<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>-->
 				</content>
 			</Page>
 		</pages>

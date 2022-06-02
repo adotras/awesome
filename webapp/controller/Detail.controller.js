@@ -8,20 +8,17 @@ sap.ui.define([
 	return Controller.extend("aweawesome.controller.Detail", {
 
 		onInit: function() {
+			var oFragController = sap.ui.controller("aweawesome.controller.DetailFragment");
+			oFragController.init(this);
+			var oFragment = sap.ui.xmlfragment("aweawesome.view.Detail", oFragController);
+			this.getView().byId("Detailpage").insertContent(oFragment);
+			this._oFragContr = oFragController;
+
 			var oRouter = this.getOwnerComponent().getRouter();
 			var oRoute = oRouter.getRoute("detailProduct");
 			oRoute.attachPatternMatched(this._onProductMatched, this);
 		},
 
-		_onProductMatched: function(oEvent) {
-			var sProdPath = oEvent.getParameter("arguments").prodId;
-
-			this.getView().bindElement({
-				//				path: "/Products/" + sProdPath,
-				path: "/" + sProdPath
-					//				model: "undefined"
-			});
-		},
 		onNavBack: function() {
 			var oHistory = History.getInstance();
 			var oPrevHash = oHistory.getPreviousHash();
@@ -47,7 +44,7 @@ sap.ui.define([
 			if (maxLength) {
 				newValue = newValue.substring(0, maxLength);
 			}
-			
+
 			var msgOnInvalidInput = oEvent.getSource().data()["liveChangeMsgOnInvalidInput"];
 			if (msgOnInvalidInput && (newValue !== inputValue)) {
 				for (var i = 0; i < inputValue.length; i++) {
@@ -64,23 +61,21 @@ sap.ui.define([
 					}
 				}
 			} else {
-				
-				
+
 				var myVal = event.target.value;
 				console.log(myVal);
-				
-				
+
 				var coolput = this.getView().byId("input2");
 				console.log(coolput);
 				coolput.setText(myVal);
 				// var input = document.getElementById("input2");
 				// console.log(input);
-				
+
 				//	this.getView().byId("input2").setText(this.getView().byId("input1").getValue());
 				// this.getView().byId("input2").valueOf(myVal);
 				// this.getView().byId("input2").value = myVal;
 				// this.getView().byId("input2").setText(myVal);
-				
+
 				oEvent.getSource().setValue(newValue);
 				oEvent.getSource().setValueState("None");
 				oEvent.getSource().setValueStateText("");

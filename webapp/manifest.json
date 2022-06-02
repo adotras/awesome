@@ -44,7 +44,9 @@
 	"sap.ui5": {
 		"rootView": {
 			"viewName": "aweawesome.view.Main",
-			"type": "XML"
+			"type": "XML",
+			"async": "true",
+			"id": "app01"
 		},
 		"dependencies": {
 			"minUI5Version": "1.30.0",

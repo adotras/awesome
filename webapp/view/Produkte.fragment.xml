@@ -2,50 +2,53 @@
 	<l:VerticalLayout>
 		<l:content>
 			<VBox>
-				<Text text="Master View"/>
+				<ComboBox items="{/Categories}" id="Combobox0" selectionChange="onSelectionChange">
+					<c:Item text="{Name}"/>
+				</ComboBox>
+				<Text text="Produktübersicht"/>
 				<Table items="{path: '/Products', parameters: { expand: 'Category, Supplier' }}" id="table0" itemPress="onItemPress">
 					<headerToolbar>
 						<Toolbar>
-							<Title level="H2" text="Personal Details"/>
 							<ToolbarSpacer/>
+							<Title level="H2" text="Sortieren"/>
 							<Button press="onTableSettings" icon="sap-icon://drop-down-list" tooltip="Settings"/>
 						</Toolbar>
 					</headerToolbar>
 					<items>
-						<ColumnListItem type="Active" id="__item2">
+						<ColumnListItem type="Active" id="item2">
 							<cells>
-								<Text text="{Category/Name}" id="__text1"/>
-								<Text text="{Name}" id="__text2"/>
-								<Text text="{Price} €" id="__text3"/>
-								<Text text="{Supplier/Name}" id="__text5"/>
-								<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"/>
+								<Text text="{Category/Name}" id="text1"/>
+								<Text text="{Name}" id="text2"/>
+								<Text text="{Price} €" id="text3"/>
+								<Text text="{Supplier/Name}" id="text5"/>
+								<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip" enabled="false"/>
 							</cells>
 						</ColumnListItem>
 					</items>
 					<columns>
 						<Column id="__column4">
 							<header>
-								<Label text="Category" id="__label4"/>
+								<Label text="Category" id="label4"/>
 							</header>
 						</Column>
 						<Column id="__column0">
 							<header>
-								<Label text="Produkt" id="__label0"/>
+								<Label text="Produkt" id="label0"/>
 							</header>
 						</Column>
 						<Column id="__column1">
 							<header>
-								<Label text="Preis" id="__label1"/>
+								<Label text="Preis" id="label1"/>
 							</header>
 						</Column>
 						<Column id="__column3">
 							<header>
-								<Label text="Lieferant" id="__label3"/>
+								<Label text="Lieferant" id="label3"/>
 							</header>
 						</Column>
 						<Column id="__column5">
 							<header>
-								<Label text="Rating" id="__label5"/>
+								<Label text="Rating" id="label5"/>
 							</header>
 						</Column>
 					</columns>
