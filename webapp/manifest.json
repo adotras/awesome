@@ -107,7 +107,7 @@
 			}],
 			"targets": {
 				"mainTarget": {
-					"viewName": "",
+					"viewName": "Main",
 					"viewLevel": 1
 				},
 				"notFoundTarget": {

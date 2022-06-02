@@ -7,6 +7,8 @@ sap.ui.define([
 
 	return Controller.extend("aweawesome.controller.Detail", {
 
+		//_sProdPath: {},
+
 		onInit: function() {
 			var oRouter = this.getOwnerComponent().getRouter();
 			var oRoute = oRouter.getRoute("detailProduct");
@@ -15,6 +17,7 @@ sap.ui.define([
 
 		_onProductMatched: function(oEvent) {
 			var sProdPath = oEvent.getParameter("arguments").prodId;
+			//this._sProdPath = "/" + oEvent.getParameter("arguments").prodId;
 
 			this.getView().bindElement({
 				//				path: "/Products/" + sProdPath,
@@ -22,7 +25,11 @@ sap.ui.define([
 					//				model: "undefined"
 			});
 		},
+
 		onNavBack: function() {
+
+			//this.getRouter().navTo("mainRoute");
+
 			var oHistory = History.getInstance();
 			var oPrevHash = oHistory.getPreviousHash();
 
@@ -32,6 +39,7 @@ sap.ui.define([
 				this.toMaster();
 			}
 		},
+
 		onLiveChangeInputValidate: function(oEvent) {
 			var inputValue = oEvent.getParameter('value').trim();
 			var newValue = inputValue;
@@ -72,13 +80,15 @@ sap.ui.define([
 				// oVal.valueOf();
 				// console.log(oVal);
 
-				var oVal = document.getElementById("__xmlview1--frag2--labelPrice").innerHTML;
+				//var oVal = document.getElementById("__xmlview1--frag2--labelPrice").innerHTML;
+				//this.getView().getModel().getProperty(_sProdPath + "/Price");
+				var oVal = this.byId(Fragment.createId("frag2", "labelPrice")).getText();
 				console.log(oVal);
-				
+
 				console.log(oVal);
 
 				var gesamtPreis = myVal * oVal;
-				gesamtPreis = (Math.round(gesamtPreis*100)/100).toFixed(2);
+				gesamtPreis = (Math.round(gesamtPreis * 100) / 100).toFixed(2);
 				// var prodPriceLabelLoc = this.byId(Fragment.createId("frag2", "labelPrice"));
 				// // var prodPrice = prodPriceLabelLoc.
 				// var oVal = this.getView().byId("__xmlview2--frag2--labelPrice").getText();
