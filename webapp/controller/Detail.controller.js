@@ -47,7 +47,7 @@ sap.ui.define([
 			if (maxLength) {
 				newValue = newValue.substring(0, maxLength);
 			}
-			
+
 			var msgOnInvalidInput = oEvent.getSource().data()["liveChangeMsgOnInvalidInput"];
 			if (msgOnInvalidInput && (newValue !== inputValue)) {
 				for (var i = 0; i < inputValue.length; i++) {
@@ -64,25 +64,40 @@ sap.ui.define([
 					}
 				}
 			} else {
-				
-				
+
 				var myVal = event.target.value;
 				console.log(myVal);
-				// var prodPrice = this.getElementById("labelPrice");
-				// console.log(prodPrice);
+				// var oVal = this.getView().byId("__xmlview1--frag2--labelPrice");
+				// console.log(oVal);
+				// oVal.valueOf();
+				// console.log(oVal);
+
+				var oVal = document.getElementById("__xmlview1--frag2--labelPrice").innerHTML;
+				console.log(oVal);
 				
-				var coolput = this.getView().byId("__xmlview2--frag2--input2");
+				console.log(oVal);
+
+				var gesamtPreis = myVal * oVal;
+				gesamtPreis = (Math.round(gesamtPreis*100)/100).toFixed(2);
+				// var prodPriceLabelLoc = this.byId(Fragment.createId("frag2", "labelPrice"));
+				// // var prodPrice = prodPriceLabelLoc.
+				// var oVal = this.getView().byId("__xmlview2--frag2--labelPrice").getText();
+				// console.log(oVal);
+
+				//	var coolput = this.getView().byId("__xmlview2--frag2--input2");
+				//	var coolput = this.getView().byId("input2");
 				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
-				console.log(coolput);
-				coolput.setValue(myVal);
+
+				// console.log(oInput2);
+				oInput2.setValue(gesamtPreis);
 				// var input = document.getElementById("input2");
 				// console.log(input);
-				
+
 				//	this.getView().byId("input2").setText(this.getView().byId("input1").getValue());
 				// this.getView().byId("input2").valueOf(myVal);
 				// this.getView().byId("input2").value = myVal;
 				// this.getView().byId("input2").setText(myVal);
-				
+
 				oEvent.getSource().setValue(newValue);
 				oEvent.getSource().setValueState("None");
 				oEvent.getSource().setValueStateText("");
