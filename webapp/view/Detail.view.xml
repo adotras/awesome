@@ -1,5 +1,5 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="aweawesome.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml"
-	xmlns:c="sap.ui.core">
+	xmlns:c="sap.ui.core" id="viewDet">
 	<App>
 		<pages>
 			<Page title="Produktinformationen für {Name}" showNavButton="true" navButtonPress="onNavBack">
