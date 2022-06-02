@@ -17,6 +17,7 @@
 										<Label text="Produktbeschreibung: {Description}"/>
 										<Label text="Bewertung:"/>
 										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"/>
+										<Label text="Produktpreis in Euro:" />
 										<Label text="{Price}" id="labelPrice"/>
 									</VBox>
 								</f:fields>
