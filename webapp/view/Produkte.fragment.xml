@@ -25,7 +25,7 @@
 					<columns>
 						<Column id="__column4">
 							<header>
-								<Label text="Category" id="__label4"/>
+								<Label text="Kategorie" id="__label4"/>
 							</header>
 						</Column>
 						<Column id="__column0">
