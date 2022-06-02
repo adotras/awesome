@@ -17,13 +17,19 @@ sap.ui.define([
 
 		_onProductMatched: function(oEvent) {
 			var sProdPath = oEvent.getParameter("arguments").prodId;
+
+
 			//this._sProdPath = "/" + oEvent.getParameter("arguments").prodId;
 
 			this.getView().bindElement({
-				//				path: "/Products/" + sProdPath,
 				path: "/" + sProdPath
-					//				model: "undefined"
 			});
+			var sFilterValue = this.byId(Fragment.createId("frag2", "Supplier")).getText();
+			var oFilter = new sap.ui.model.Filter("Supplier/Name",
+				sap.ui.model.FilterOperator.EQ,
+				sFilterValue);
+			var oTable = this.getView().byId(Fragment.createId("frag1", "table0"));
+			oTable.getBinding("items").filter([oFilter]);
 		},
 
 		onNavBack: function() {
@@ -32,7 +38,6 @@ sap.ui.define([
 
 			var oHistory = History.getInstance();
 			var oPrevHash = oHistory.getPreviousHash();
-
 			if (oPrevHash !== undefined) {
 				window.history.go(-1);
 			} else {
@@ -74,6 +79,16 @@ sap.ui.define([
 			} else {
 
 				var myVal = event.target.value;
+
+				var oVal = this.byId(Fragment.createId("frag2", "labelPrice")).getText();
+
+				var gesamtPreis = myVal * oVal;
+				gesamtPreis = (Math.round(gesamtPreis * 100) / 100).toFixed(2);
+
+				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
+
+				oInput2.setValue(gesamtPreis);
+
 				console.log(myVal);
 				// var oVal = this.getView().byId("__xmlview1--frag2--labelPrice");
 				// console.log(oVal);
@@ -107,6 +122,7 @@ sap.ui.define([
 				// this.getView().byId("input2").valueOf(myVal);
 				// this.getView().byId("input2").value = myVal;
 				// this.getView().byId("input2").setText(myVal);
+
 
 				oEvent.getSource().setValue(newValue);
 				oEvent.getSource().setValueState("None");

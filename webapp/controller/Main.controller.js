@@ -2,8 +2,9 @@ sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/model/Filter",
 	"sap/ui/model/FilterOperator",
-	"sap/ui/model/Sorter"
-], function(Controller, Filter, FilterOperator, Sorter) {
+	"sap/ui/model/Sorter",
+	"sap/ui/core/Fragment"
+], function(Controller, Filter, FilterOperator, Sorter, Fragment) {
 	"use strict";
 
 	return Controller.extend("aweawesome.controller.Main", {
@@ -20,6 +21,21 @@ sap.ui.define([
 				}
 			});
 		},
+		onSelectionChange: function(oEvent) {
+			var sFilterValue = oEvent.getSource("Combobox0").getProperty("value");
+			var oFilter = new sap.ui.model.Filter("Category/Name",
+				sap.ui.model.FilterOperator.EQ,
+				sFilterValue);
+			var oTable = this.getView().byId(Fragment.createId("frag1", "table0"));
+			oTable.getBinding("items").filter([oFilter]);
+		},
+		
+		onPressFilter: function(oEvent) {
+			var oFilter = new sap.ui.model.Filter("ID",
+				sap.ui.model.FilterOperator.GE,	"0");
+			var oTable = this.getView().byId(Fragment.createId("frag1", "table0"));
+			oTable.getBinding("items").filter([oFilter]);
+		},
 
 		onTableSettings: function(oEvent) {
 			// Open the Table Setting dialog 
@@ -28,7 +44,8 @@ sap.ui.define([
 		},
 		onConfirm: function(oEvent) {
 			var oView = this.getView();
-			var oTable = oView.byId("table0");
+			//	var oTable = this.getView().byId("__xmlview1--frag1--table0");
+			var oTable = oView.byId(Fragment.createId("frag1", "table0"));
 			var mParams = oEvent.getParameters();
 			var oBinding = oTable.getBinding("items");
 			// apply grouping 
@@ -73,14 +90,6 @@ sap.ui.define([
 			oRouter.navTo("detailProduct", {
 				prodId: sPathIndex
 			});
-		},
-
-		onSelectionChange: function(oEvent) {
-			var oItem = oEvent.getParameter("selectedItem");
-			var sPath = oItem.getBindingContext().getPath();
-			var oTable = this.getView().byId("table0");
-			oTable.bindElement(sPath);
 		}
-
 	});
 });

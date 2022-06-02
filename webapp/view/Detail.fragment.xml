@@ -15,7 +15,14 @@
 										<Label text="ProduktID: {ID}"/>
 										<Label text="Produktname: {Name}"/>
 										<Label text="Produktbeschreibung: {Description}"/>
+										<Label text="{Supplier/Name}" id="Supplier"/>
 										<Label text="Bewertung:"/>
+
+										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"
+											enabled="false"/>
+										<Label text="Produktpreis in Euro:" id="produktpreis"/>
+										<Label text="{Price}" id="labelPrice"/>
+
 
 										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"/>
 										<Label text="Produktpreis in Euro:" />

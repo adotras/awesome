@@ -73,7 +73,7 @@
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
-					"defaultBindingMode": "OneTime",
+					"defaultBindingMode": "TwoWay",
 					"defaultCountMode": "Request",
 					"useBatch": false
 				},
@@ -93,7 +93,9 @@
 				"viewPath": "aweawesome.view",
 				"controlId": "app01",
 				"controlAggregation": "pages",
-				"bypassed": { "target": "notFoundTarget"},
+				"bypassed": {
+					"target": "notFoundTarget"
+				},
 				"async": true
 			},
 			"routes": [{
@@ -119,6 +121,5 @@
 				}
 			}
 		}
-
 	}
 }
