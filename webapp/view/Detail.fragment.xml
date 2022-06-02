@@ -23,14 +23,6 @@
 										<Label text="Produktpreis in Euro:" id="produktpreis"/>
 										<Label text="{Price}" id="labelPrice"/>
 
-
-										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"/>
-										<Label text="Produktpreis in Euro:" />
-										<Label text="{Price}" id="labelPrice"/>
-
-										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip" enabled="false"/>
-										<Label text="Preis: {Price} €" id="labelPrice"/>
-
 									</VBox>
 								</f:fields>
 							</f:FormElement>
