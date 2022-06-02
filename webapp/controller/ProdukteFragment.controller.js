@@ -10,7 +10,7 @@ sap.ui.define([
 	return Controller.extend("aweawesome.controller.Detail.fragment", {
 
 		// 		_oDialog: null,
-	//	_oParent: null,
+		//	_oParent: null,
 
 		//onInit: function() {}, //wird nie vom UI5-Framework abgerufen
 
@@ -19,6 +19,11 @@ sap.ui.define([
 			var sPath = oItem.getBindingContext().getPath();
 			var oTable = this.getView().byId("table0");
 			oTable.bindElement(sPath);
+		},
+		onTableSettings: function(oEvent) {
+			// Open the Table Setting dialog 
+			this._oDialog = sap.ui.xmlfragment("tablesettings.SettingsDialog", this);
+			this._oDialog.open();
 		}
 
 	});

@@ -1,10 +1,11 @@
-<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="aweawesome.controller.Detail"
-	xmlns:html="http://www.w3.org/1999/xhtml"  xmlns:c="sap.ui.core">
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="aweawesome.controller.Detail" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:c="sap.ui.core">
 	<App>
 		<pages>
 			<Page title="Produktinformationen für {Name}" showNavButton="true" navButtonPress="onNavBack">
 				<content>
 					<c:Fragment fragmentName="aweawesome.view.Detail" type="XML" id="frag2"/>
+					<c:Fragment fragmentName="aweawesome.view.Produkte" type="XML" id="frag1"/>
 				</content>
 			</Page>
 		</pages>
