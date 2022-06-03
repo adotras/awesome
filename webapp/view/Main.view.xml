@@ -1,6 +1,6 @@
 <mvc:View controllerName="aweawesome.controller.Main" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
 	xmlns:l="sap.ui.layout" displayBlock="true" xmlns="sap.m" xmlns:c="sap.ui.core" id="viewMain">
-	<App id="app01">
+	<App id="app01" backgroundImage="awesome.jpg">
 		<pages>
 			<Page title="Awesome Online Shop">
 				<content>
@@ -9,7 +9,7 @@
 						<Label text="Kategoriefilter"/>
 							</l:HorizontalLayout>
 						<l:HorizontalLayout class="sapUiContentPadding" >
-						<ComboBox items="{/Categories}" id="Combobox0" selectionChange="onSelectionChange" tooltip="Kategoriefilter" showClearIcon="true">
+						<ComboBox items="{/Categories}" id="Combobox0" selectionChange="onSelectionChange" tooltip="Kategoriefilter">
 							<c:Item text="{Name}"/>
 						</ComboBox>
 						<Button text="Im Shop stöbern" press="onPressFilter"/>
