@@ -1,13 +1,12 @@
 sap.ui.define([
 	"sap/ui/core/mvc/Controller",
 	"sap/ui/core/Fragment",
-	"sap/ui/core/routing/History"
-], function(Controller, Fragment, History) {
+	"sap/ui/core/routing/History",
+	"sap/m/MessageToast"
+], function(Controller, Fragment, History, MessageToast) {
 	"use strict";
 
 	return Controller.extend("aweawesome.controller.Detail", {
-
-		//_sProdPath: {},
 
 		onInit: function() {
 			var oRouter = this.getOwnerComponent().getRouter();
@@ -15,12 +14,18 @@ sap.ui.define([
 			oRoute.attachPatternMatched(this._onProductMatched, this);
 		},
 
+		onItemPress: function(oEvent) {
+			var oItem = oEvent.getParameter("listItem");
+			var sPath = oItem.getBindingContext().getPath();
+			var sPathIndex = sPath.substr(sPath.lastIndexOf("/") + 1);
+			var oRouter = this.getOwnerComponent().getRouter();
+			oRouter.navTo("detailProduct", {
+				prodId: sPathIndex
+			});
+		},
+
 		_onProductMatched: function(oEvent) {
 			var sProdPath = oEvent.getParameter("arguments").prodId;
-
-
-			//this._sProdPath = "/" + oEvent.getParameter("arguments").prodId;
-
 			this.getView().bindElement({
 				path: "/" + sProdPath
 			});
@@ -33,9 +38,6 @@ sap.ui.define([
 		},
 
 		onNavBack: function() {
-
-			//this.getRouter().navTo("mainRoute");
-
 			var oHistory = History.getInstance();
 			var oPrevHash = oHistory.getPreviousHash();
 			if (oPrevHash !== undefined) {
@@ -43,6 +45,37 @@ sap.ui.define([
 			} else {
 				this.toMaster();
 			}
+		},
+		onTableSettings: function(oEvent) {
+			// Open the Table Setting dialog 
+			this._oDialog = sap.ui.xmlfragment("aweawesome.view.SettingsDialog", this);
+			this._oDialog.open();
+		},
+		onConfirm: function(oEvent) {
+			var oView = this.getView();
+			//	var oTable = this.getView().byId("__xmlview1--frag1--table0");
+			var oTable = oView.byId(Fragment.createId("frag1", "table0"));
+			var mParams = oEvent.getParameters();
+			var oBinding = oTable.getBinding("items");
+			// apply grouping 
+			var aSorters = [];
+			// apply sorter 
+			var sPath = mParams.sortItem.getKey();
+			var bDescending = mParams.sortDescending;
+			aSorters.push(new sap.ui.model.Sorter(sPath, bDescending));
+			oBinding.sort(aSorters);
+			// apply filters 
+		},
+
+		buyButton: function(oEvent) {
+			var oNumber = this.byId(Fragment.createId("frag2", "input1")).getValue();
+			var oPrice = this.byId(Fragment.createId("frag2", "input2")).getValue();
+			var oProduct = this.byId(Fragment.createId("frag2", "Produktname")).getText();
+
+			MessageToast.show("Vielen Dank für deinen Einkauf von " + oNumber + " " + oProduct + " im Wert von " + oPrice + " €.", {
+				duration: 4000,
+				width: "80%"
+			});
 		},
 
 		onLiveChangeInputValidate: function(oEvent) {
@@ -89,41 +122,7 @@ sap.ui.define([
 
 				oInput2.setValue(gesamtPreis);
 
-				console.log(myVal);
-				// var oVal = this.getView().byId("__xmlview1--frag2--labelPrice");
-				// console.log(oVal);
-				// oVal.valueOf();
-				// console.log(oVal);
-
-				//var oVal = document.getElementById("__xmlview1--frag2--labelPrice").innerHTML;
-				//this.getView().getModel().getProperty(_sProdPath + "/Price");
-				var oVal = this.byId(Fragment.createId("frag2", "labelPrice")).getText();
-				console.log(oVal);
-
-				console.log(oVal);
-
-				var gesamtPreis = myVal * oVal;
-				gesamtPreis = (Math.round(gesamtPreis * 100) / 100).toFixed(2);
-				// var prodPriceLabelLoc = this.byId(Fragment.createId("frag2", "labelPrice"));
-				// // var prodPrice = prodPriceLabelLoc.
-				// var oVal = this.getView().byId("__xmlview2--frag2--labelPrice").getText();
-				// console.log(oVal);
-
-				//	var coolput = this.getView().byId("__xmlview2--frag2--input2");
-				//	var coolput = this.getView().byId("input2");
-				var oInput2 = this.byId(Fragment.createId("frag2", "input2"));
-
-				// console.log(oInput2);
 				oInput2.setValue(gesamtPreis);
-				// var input = document.getElementById("input2");
-				// console.log(input);
-
-				//	this.getView().byId("input2").setText(this.getView().byId("input1").getValue());
-				// this.getView().byId("input2").valueOf(myVal);
-				// this.getView().byId("input2").value = myVal;
-				// this.getView().byId("input2").setText(myVal);
-
-
 				oEvent.getSource().setValue(newValue);
 				oEvent.getSource().setValueState("None");
 				oEvent.getSource().setValueStateText("");

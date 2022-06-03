@@ -1,0 +1,5 @@
+<c:FragmentDefinition xmlns:c="sap.ui.core" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:t="sap.ui.table">
+	<t:RowActionItem binding="{shoppingList>/items}"
+		icon="{ parts: [ {path: 'products>'}, {path: 'shoppingList>'} ], formatter: '.getShoppingCartRowActionIconSource' }" text="Add to Cart"
+		press="onCartButtonPressed"/>
+</c:FragmentDefinition>

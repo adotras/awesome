@@ -13,16 +13,16 @@
 								<f:fields>
 									<VBox>
 										<Label text="ProduktID: {ID}"/>
-										<Label text="Produktname: {Name}"/>
+										<Label text="Produktname:" />
+										<Label text="{Name}" id="Produktname"/>
 										<Label text="Produktbeschreibung: {Description}"/>
+										<Label text="Lieferant:"/>
 										<Label text="{Supplier/Name}" id="Supplier"/>
 										<Label text="Bewertung:"/>
-
 										<RatingIndicator id="RI_M" maxValue="5" class="sapUiSmallMarginBottom" value="{Rating}" iconSize="22px" tooltip="Rating Tooltip"
 											enabled="false"/>
 										<Label text="Produktpreis in Euro:" id="produktpreis"/>
 										<Label text="{Price}" id="labelPrice"/>
-
 									</VBox>
 								</f:fields>
 							</f:FormElement>
@@ -34,11 +34,11 @@
 								<f:fields>
 									<VBox>
 										<Label text="Bestellmenge"/>
-										<Input value="1" id="input1" width="200px" customData:liveChangeAllow="digits" customData:liveChangeMsgOnInvalidInput="# is not allowed"
+										<Input value="0" id="input1" width="200px" customData:liveChangeAllow="digits" customData:liveChangeMsgOnInvalidInput="# is not allowed"
 											customData:liveChangeMaxLength="10" liveChange="onLiveChangeInputValidate"/>
-										<Label text="Gesamtpreis"/>
-										<Input value="Fill it up" id="input2" width="200px" editable="false"/>
-										<Button text="Kaufen" press="onPress"/>
+										<Label text="Gesamtpreis in Euro"/>
+										<Input value="0.00" id="input2" width="200px" editable="false"/>
+										<Button text="Kaufen" press="buyButton"/>
 									</VBox>
 								</f:fields>
 							</f:FormElement>

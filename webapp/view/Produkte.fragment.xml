@@ -2,12 +2,12 @@
 	<l:VerticalLayout>
 		<l:content>
 			<VBox>
-				<Text text="Master View"/>
+				<Text text=""/>
 				<Table items="{path: '/Products', parameters: { expand: 'Category, Supplier' }}" id="table0" itemPress="onItemPress">
 					<headerToolbar>
 						<Toolbar>
-							<Title level="H2" text="Personal Details"/>
 							<ToolbarSpacer/>
+							<Title level="H2" text="Sortieren"/>
 							<Button press="onTableSettings" icon="sap-icon://drop-down-list" tooltip="Settings"/>
 						</Toolbar>
 					</headerToolbar>
