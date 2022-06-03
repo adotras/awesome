@@ -1,15 +1,10 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
-  <ViewSettingsDialog confirm="onConfirm">
-    <sortItems>
-      <ViewSettingsItem selected="true" key="Category/Name" text="Category"/>
-      <ViewSettingsItem key="Supplier/Name" text="Lieferant"/>
-    </sortItems>
-    <filterItems>
-      <ViewSettingsFilterItem key="Category" text="Category" multiSelect="false">
-        <items>
-          <ViewSettingsItem key="Beverages" text="Beverages"/>
-        </items>
-      </ViewSettingsFilterItem>
-    </filterItems>
-  </ViewSettingsDialog>
+	<ViewSettingsDialog confirm="onConfirm">
+		<sortItems>
+			<ViewSettingsItem selected="true" key="Price" text="Preis"/>
+			<ViewSettingsItem key="Category/Name" text="Category"/>
+			<ViewSettingsItem key="Supplier/Name" text="Lieferant"/>
+			<ViewSettingsItem key="Rating" text="Bewertung"/>
+		</sortItems>
+	</ViewSettingsDialog>
 </core:FragmentDefinition>
